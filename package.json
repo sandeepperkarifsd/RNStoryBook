@@ -2,6 +2,8 @@
   "name": "rnstorybook",
   "version": "0.0.1",
   "private": true,
+  "author": "Infosys",
+  "license": "MIT",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -10,7 +12,9 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
-    "prestorybook": "rnstl"
+    "prestorybook": "rnstl",
+    "release": "semantic-release",
+    "postversion": "react-native-version --never-amend"
   },
   "dependencies": {
     "react": "17.0.2",
@@ -65,5 +69,28 @@
       "pattern": "**/*.stories.js",
       "outputFile": "./storybook/storyLoader.js"
     }
+  },
+  "release": {
+    "branch": "master",
+    "npmPublish": false,
+    "ci": false,
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "ios/$rnstorybook*/Info.plist",
+            "ios/$rnstorybook.xcodeproj/project.pbxproj",
+            "android/app/build.gradle",
+            "package.json"
+          ],
+          "message": "chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
+        }
+      ],
+      "@semantic-release/github"
+    ]
   }
 }

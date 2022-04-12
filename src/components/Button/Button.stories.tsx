@@ -3,7 +3,7 @@ import {storiesOf} from '@storybook/react-native';
 import {action} from '@storybook/addon-actions';
 
 import ButtonView from './ButtonView';
-import {ButtonStyle} from './ViewDecorator';
+import {ButtonStyle} from '../ViewDecorator';
 
 storiesOf('Test Component', module)
   .addDecorator(ButtonStyle)

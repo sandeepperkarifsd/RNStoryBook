@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import ImageView from './ImageView';
-import ButtonView from './ButtonView';
+import ButtonView from './Button/ButtonView';
 import ViewStyles from './styles';
 
 const ProductCard = ({data = {name: '', price: ''}, dark = false}) => {

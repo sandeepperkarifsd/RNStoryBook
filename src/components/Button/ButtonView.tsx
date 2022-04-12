@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 
-import ViewStyles from './styles';
+import ViewStyles from '../styles';
 
 function ButtonView({onPress = () => {}, children = '', outline = false}) {
   const containerStyles = [ViewStyles.container];
